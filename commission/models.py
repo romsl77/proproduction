@@ -5,7 +5,7 @@ from django.utils.encoding import python_2_unicode_compatible
 class WagonDrawing(models.Model):
 	wagon_number = models.IntegerField(default=0)
 	ok_date = models.DateField()
-	link = models.CharField(max_length=500, blank=True)
+	link = models.CharField(max_length=500, blank=False)
 	product = models.CharField(max_length=30, blank=True)
 	product_description = models.CharField(max_length=82, blank=True)
 	wagon_id = models.CharField(max_length=32, blank=False)
