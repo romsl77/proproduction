@@ -12,7 +12,7 @@ urlpatterns = [
 	# shows product at wagon /commission/id....
 	url(r'^(?P<pid>.*)/$', views.product, name='product'),
 	#define the url getdata that we have written inside form
-    url(r'^getdata/', views.index),
+	url(r'^getdata/', views.index),
 	
 	# shows index at /commission/drawing/d387975ef2964e908efbe7ba2af2181c
 	#url(r'^wagon/(?P<cuuid>[0-9a-f-]+)/$', views.drawing, name='drawing'),
