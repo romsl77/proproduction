@@ -1,0 +1,36 @@
+{% include 'commission/base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'commission/style.css' %}" />
+
+<a href="../../../choosewagon/{{ okdate }}">Zurueck zur Wagenauswahl</a>
+<a href="../../../">Zurueck zur OK-Punkt Auswahl</a>
+
+{% if draw_list %}
+	<ul>
+	{% for drawing in draw_list %}
+		<table>
+			<tr>
+				<td><b>{{ drawing.gfnr }} / {{ drawing.sequence }}</b></td>
+			</tr>
+			<tr>
+				<td><b>Produkt</b></td>
+				<td><b>SortNr</b></td>
+				<td><b>Position</b></td>
+			</tr>
+			<tr>
+				<td><b>{{ drawing.product }}</b></td>
+				<td>{{ drawing.sortnr }}</td>
+				<td>{{ drawing.position }}</td>
+			</tr>
+		</table>
+		<object data="{% static '../' %}{{ drawing.link }}" type="application/pdf" width="95%" height="95%"></object>		
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>Keine Zeichnungen für diesen Wagen verfuegbar</p>
+{% endif %}
+
+
+

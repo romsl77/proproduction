@@ -1,0 +1,12 @@
+{% include 'commission/base.html' %}
+
+{% if wagond_list %}
+	<a href="../../../commission">Zurueck zur OK-Punkt Auswahl</a>
+	<ul>
+	{% for wagon in wagond_list %}
+		<li><a href="/commission/wagon/{{ okdate }}/{{ wagon.wagon_number }}">Wagen {{ wagon.wagon_number }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>Keine Wägen für dieses OK-Punkt Datum verfuegbar</p>
+{% endif %}

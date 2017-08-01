@@ -1,0 +1,42 @@
+<title>proProduction</title>
+
+<head onload="myFunction()">
+<script>
+function myFunction() {
+	document.getElementById('cid').focus();
+}
+</script>
+</head>
+
+<body onload="myFunction()">
+</body>
+
+{% include 'commission/base.html' %}
+
+<h1>Bitte w&aumlhlen Sie das OK-Punkt Datum f&uumlr die gew&uumlnschten Konstruktionszeichnungen aus</h1>
+
+{% if ok_date_list %}
+	<table class="table">
+	{% for okdate in ok_date_list %}
+		<tr><li><a href="/commission/choosewagon/{{ okdate.ok_date|date:"Y-m-d" }}">{{ okdate.ok_date }}</a></li></tr>
+	{% endfor %}
+	</table>
+{% else %}
+	<p>Keine Daten verfuegbar</p>
+{% endif %}
+
+<h1>Oder Scannen sie den Barcode ihres Produktes</h1>
+
+<form method="post" action="">
+    <table>
+        <tr>
+            <td>Enter Wagon ID</td>
+            <td><input type="text" name="cid" id="cid"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button>Best&aumltigen</button>
+            </td>
+        </tr>
+    </table>
+</form>
